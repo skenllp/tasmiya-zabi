@@ -157,19 +157,23 @@
         showFeedback('error', 'We couldn’t save your RSVP. Please check your connection and try again.');
       }
 
-      // Google Apps Script web apps don't return readable CORS responses,
-      // so we use no-cors: a resolved request means it was sent; a network
-      // failure rejects and shows the error message.
+      // POST as text/plain (a "simple" request, so no CORS preflight) and read
+      // the script's reply. Only an explicit "ok" from the script counts as saved.
       fetch(sheetsUrl, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
           name: data.name, phone: data.phone, guests: data.guests,
           attend: data.attend, message: data.message,
           submittedAt: data.submittedAt
         })
-      }).then(function() { done(null); }).catch(function(err) { done(err); });
+      }).then(function(res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      }).then(function(text) {
+        if (String(text).trim().toLowerCase().indexOf('ok') !== 0) throw new Error('Unexpected reply: ' + String(text).slice(0, 120));
+        done(null);
+      }).catch(function(err) { done(err); });
 
       function done(error) {
         if (finished) return;
