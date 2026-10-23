@@ -1,14 +1,14 @@
 // Firebase Configuration — Tasmiya & Zabi (Wishes Wall)
-// Project: zabi-tasmiya
+// Project: zabi-tasmiya-1d50c
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDHjUmwKyyEPv3dsGZyyB-TrR2jj3_U7Co",
-  authDomain: "zabi-tasmiya.firebaseapp.com",
-  databaseURL: "https://zabi-tasmiya-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "zabi-tasmiya",
-  storageBucket: "zabi-tasmiya.firebasestorage.app",
-  messagingSenderId: "531502470554",
-  appId: "1:531502470554:web:6c0f1c02fcfad27f811623"
+  apiKey: "AIzaSyArsSGpVTr46z64N0sEc2ocQzkbo4GIjhI",
+  authDomain: "zabi-tasmiya-1d50c.firebaseapp.com",
+  databaseURL: "https://zabi-tasmiya-1d50c-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "zabi-tasmiya-1d50c",
+  storageBucket: "zabi-tasmiya-1d50c.firebasestorage.app",
+  messagingSenderId: "1033519030453",
+  appId: "1:1033519030453:web:d36e9c798d3fb426351efc"
 };
 
 // Initialize Firebase
